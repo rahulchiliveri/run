@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daudh Run Club — Run. Train. Belong.</title>
+  <meta name="description" content="Daudh Run Club — community running group. Weekly runs, events, training plans, and memberships." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#ff6b35;
+      --muted:#6b7280;
+      --bg:#0f172a;
+      --card:#0b1220;
+      --glass: rgba(255,255,255,0.04);
+      --max-width:1100px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef8;background:linear-gradient(180deg,#071028 0%, #081426 60%);}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
+
+    /* Header */
+    header{backdrop-filter: blur(6px);position:sticky;top:0;z-index:50;padding:12px 0}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff9a76);display:flex;align-items:center;justify-content:center;font-weight:800;color:white}
+    nav ul{display:flex;gap:16px;list-style:none;padding:0;margin:0}
+    .cta{background:linear-gradient(90deg,var(--accent),#ff8a61);padding:10px 14px;border-radius:10px;color:#041025;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:48px 0}
+    .hero-left h1{font-size:44px;margin:0 0 12px;line-height:1.02}
+    .hero-left p{color:var(--muted);margin:0 0 18px}
+    .hero-cta{display:flex;gap:12px}
+    .btn{padding:12px 16px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+    .btn-primary{background:var(--accent);color:#041025}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#cfe7ff}
+    .stats{display:flex;gap:18px;margin-top:18px}
+    .stat{background:var(--glass);padding:12px;border-radius:10px;text-align:center}
+
+    /* Card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px}
+
+    /* Events */
+    .events{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:36px 0}
+    .event{padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+    .event h4{margin:8px 0 6px}
+    .event small{color:var(--muted)}
+
+    /* About & training */
+    .two-col{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:start}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0}
+    .gallery img{width:100%;height:110px;object-fit:cover;border-radius:8px}
+
+    /* Membership */
+    .join-form input,.join-form select, .join-form textarea{width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:#dbeafe;margin-bottom:10px}
+    .muted{color:var(--muted)}
+
+    /* Footer */
+    footer{margin-top:40px;padding:28px 0;border-top:1px solid rgba(255,255,255,0.03)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero,.two-col{grid-template-columns:1fr}
+      .events{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      .events{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .logo{width:40px;height:40px}
+      .hero-left h1{font-size:28px}
+    }
+
+    /* small helpers */
+    .muted-2{color:#9fb3c8;font-size:13px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden>DR</div>
+        <div>
+          <div style="font-weight:700">Daudh Run Club</div>
+          <div class="muted-2" style="font-size:12px">Community running in your neighbourhood</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#training">Training</a></li>
+          <li><a href="#join">Join</a></li>
+          <li><a class="cta" href="#join">Become a Member</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Run together. Get stronger. Have fun.</h1>
+        <p class="muted">Daudh Run Club brings runners of all levels together for weekly group runs, coached sessions, and local races. New here? Start with our beginner-friendly 3K program.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">Join a Run</button>
+          <a class="btn btn-outline" href="#events">See Events</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat card">
+            <div style="font-weight:700;font-size:18px">1,200+</div>
+            <div class="muted">Members</div>
+          </div>
+          <div class="stat card">
+            <div style="font-weight:700;font-size:18px">3x / week</div>
+            <div class="muted">Group Runs</div>
+          </div>
+          <div class="stat card">
+            <div style="font-weight:700;font-size:18px">Weekly</div>
+            <div class="muted">Coached Sessions</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card hero-right" aria-hidden style="padding:18px">
+        <div style="font-weight:700;margin-bottom:8px">Next big run</div>
+        <div style="font-size:13px;color:var(--muted)">Sun, Dec 7 • 6:00 AM • Riverside Park</div>
+        <div style="margin-top:12px">
+          <img src="https://images.unsplash.com/photo-1526403224740-3c6fcf7f1293?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Group running" style="width:100%;height:220px;object-fit:cover;border-radius:10px;margin-top:8px">
+        </div>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="btn btn-primary" onclick="alert('Thanks — you will be registered (demo)')">RSVP</button>
+          <a class="btn btn-outline" href="#events">More info</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events">
+      <h2 style="margin:6px 0 12px">Upcoming events</h2>
+      <div class="events">
+        <article class="event card">
+          <img src="https://images.unsplash.com/photo-1517964603305-35a65b180e10?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="5k" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+          <h4>Riverside 5K — Community Run</h4>
+          <small class="muted">Dec 7 • 6:00 AM • Free</small>
+          <p class="muted" style="margin-top:8px">A friendly 5K around the river. Pace groups for walkers to sub-6 runners.</p>
+        </article>
+
+        <article class="event card">
+          <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="intervals" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+          <h4>Interval Night — Track Work</h4>
+          <small class="muted">Tue • 7:00 PM • City Stadium</small>
+          <p class="muted" style="margin-top:8px">Speed work with structured intervals. Coaches available for form checks.</p>
+        </article>
+
+        <article class="event card">
+          <img src="https://images.unsplash.com/photo-1528070893459-6cf3b95d4bfa?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="long run" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+          <h4>Sunday Long Run</h4>
+          <small class="muted">Sun • 5:30 AM • Meet at Pump House</small>
+          <p class="muted" style="margin-top:8px">Group long runs with nutrition and pacing tips. Multiple distance options.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- About & Training -->
+    <section id="about" class="two-col">
+      <div>
+        <h2>About Daudh Run Club</h2>
+        <p class="muted">Founded to make running social, safe, and consistent. We welcome beginners, casual joggers, and competitive athletes. Our core values: inclusivity, safety, and consistency.</p>
+
+        <h3 style="margin-top:18px">What we offer</h3>
+        <ul class="muted-2">
+          <li>Weekly group runs (3x) with pacers.</li>
+          <li>Structured training plans for 5K, 10K, half marathon.</li>
+          <li>Coach-led interval and technique sessions.</li>
+          <li>Community events, social runs, and workshops.</li>
+        </ul>
+
+        <h3 style="margin-top:18px">Training programs</h3>
+        <div class="card" style="margin-top:10px">
+          <strong>Beginner 3K (8 weeks)</strong>
+          <p class="muted" style="margin:6px 0">Build from walk/run to continuous 3K. Group meets twice weekly, plus one long run.</p>
+          <a href="#join">Start this program →</a>
+        </div>
+
+      </div>
+
+      <aside class="card">
+        <div style="font-weight:700">Coach's tip</div>
+        <p class="muted" style="margin-top:6px">Consistency beats intensity early on — aim for 3 quality sessions a week and gradually increase volume by no more than 10% per week.</p>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
+        <div style="font-weight:700">Safety</div>
+        <p class="muted" style="margin-top:6px">All runs have a sweeper, basic first-aid kit at meeting points, and mandatory visible clothing for night runs.</p>
+      </aside>
+    </section>
+
+    <!-- Gallery -->
+    <section>
+      <h3>Gallery</h3>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="run1">
+        <img src="https://images.unsplash.com/photo-1526403224740-3c6fcf7f1293?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="run2">
+        <img src="https://images.unsplash.com/photo-1546484959-f3725f2b7aab?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="run3">
+        <img src="https://images.unsplash.com/photo-1508098682725-e6db3bbf26a8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="run4">
+      </div>
+    </section>
+
+    <!-- Join / Membership -->
+    <section id="join" style="margin-top:18px">
+      <h2>Join Daudh Run Club</h2>
+      <div class="card join-form" style="display:grid;grid-template-columns:1fr 360px;gap:18px;padding:18px;margin-top:12px">
+        <form onsubmit="handleJoin(event)">
+          <label class="muted">Full name</label>
+          <input type="text" id="name" required placeholder="Your name">
+
+          <label class="muted">Email</label>
+          <input type="email" id="email" required placeholder="you@example.com">
+
+          <label class="muted">Experience level</label>
+          <select id="level">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+
+          <label class="muted">Which program interests you?</label>
+          <select id="program">
+            <option>Beginner 3K</option>
+            <option>10K Training</option>
+            <option>Half Marathon</option>
+            <option>Just casual runs</option>
+          </select>
+
+          <label class="muted">Notes / medical info</label>
+          <textarea id="notes" rows="3" placeholder="Any allergies, injuries, or notes"></textarea>
+
+          <div style="display:flex;gap:12px;margin-top:6px">
+            <button class="btn btn-primary" type="submit">Join the Club</button>
+            <button class="btn btn-outline" type="button" onclick="newsletterPopup()">Subscribe</button>
+          </div>
+        </form>
+
+        <aside>
+          <div style="font-weight:700">Membership plans</div>
+          <div style="margin-top:8px" class="muted-2">
+            <div style="margin-bottom:8px"><span class="pill">Free</span> — access to weekly community runs</div>
+            <div style="margin-bottom:8px"><span class="pill">Monthly ₹199</span> — coached sessions + discounts</div>
+            <div style="margin-bottom:8px"><span class="pill">Annual ₹1,999</span> — full access + merch discount</div>
+          </div>
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
+          <div class="muted-2">Have questions? Email <a href="mailto:hello@daudhrun.club">hello@daudhrun.club</a></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Map placeholder -->
+    <section style="margin-top:18px">
+      <h3>Meetup locations</h3>
+      <div class="card" style="padding:0;margin-top:10px;overflow:hidden">
+        <!-- Replace the iframe src with your Google Maps embed link -->
+        <div style="height:320px;display:flex;align-items:center;justify-content:center;color:var(--muted)">Map embed placeholder — add your Google Maps iframe here</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>
+          <strong>Daudh Run Club</strong>
+          <div class="muted-2">Run together. Get stronger. Have fun.</div>
+        </div>
+        <div class="muted-2">Follow us: <a href="#">Instagram</a> • <a href="#">Strava</a> • <a href="#">Facebook</a></div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div class="muted-2">© <span id="year"></span> Daudh Run Club</div>
+        <div class="muted-2">Made with ❤️ — Terms • Privacy</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleJoin(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if(!name || !email){alert('Please fill name and email');return}
+      // Demo handling — replace with real submission (fetch/XHR to your backend)
+      alert('Thanks '+name+' — we sent a confirmation to '+email+' (demo)');
+      e.target.reset?.();
+    }
+
+    function newsletterPopup(){
+      const mail = prompt('Enter your email to subscribe');
+      if(mail) alert('Thanks — '+mail+' has been subscribed (demo)');
+    }
+
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(ev){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          ev.preventDefault();
+          document.querySelector(href)?.scrollIntoView({behavior:'smooth'});
+        }
+      })
+    })
+  </script>
+</body>
+</html>
